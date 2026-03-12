@@ -2,66 +2,306 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DESPENSA YOLHER SA</title>
     <style>
+        :root {
+            --bg: #f4f6f8;
+            --card: #ffffff;
+            --primary: #0077ff;
+            --text: #1a1a1a;
+            --muted: #555;
+            --border: rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0b0d13;
+            --card: #111827;
+            --primary: #4f8cff;
+            --text: #f1f5fb;
+            --muted: rgba(241, 245, 251, 0.78);
+            --border: rgba(255,255,255,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial;
-            text-align: start;
-            background-color: #f4f6f8;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.4;
         }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .card {
-            margin: 10px auto;
-            padding: 20px 24px 30px;
-            width: 800px;
-            background: rgb(255, 255, 255);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(236, 66, 66, 0.801);
+            margin: 20px auto;
+            padding: 26px 28px 30px;
+            max-width: 700px;
+            width: 90%;
+            background: var(--card);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+            text-align: center;
         }
+
         .card img {
+            max-width: 220px;
+            width: 60%;
+            height: auto;
+            border-radius: 14px;
+            margin: 0 auto 18px;
             display: block;
-            margin: 0 auto 20px;
-            max-width: 110%;
-            border-radius: 10px;
         }
-        button {
-            padding: 10px 20px;
-            background: #0077ff;
-            color: white;
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 0 0 16px;
+        }
+
+        p {
+            margin: 12px 0;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 999px;
             border: none;
-            border-radius: 15px;
             cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 120ms ease, background 120ms ease;
+            text-decoration: none;
+            color: #fff;
+            background: var(--primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: #005fcc;
+        }
+
+        .btn.light {
+            background: #005fcc;
+            color: var(--text);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            margin: 28px 0 12px;
+            color: var(--text);
+        }
+
+        .links {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .links p {
+            margin: 10px 0;
+        }
+
+        .form {
+            margin-top: 18px;
+            text-align: left;
+        }
+
+        .form label {
+            display: block;
+            margin: 10px 0 4px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .form textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form button {
+            margin-top: 12px;
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-size: 0.95rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 180ms ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .map {
+            width: 100%;
+            height: 260px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-top: 14px;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .links {
+                text-align: center;
+            }
+
+            .links p {
+                margin: 8px 0;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <img src="LOGO_YOLHER-new1.png" alt="Imagen de la despensa" style="max-width: 88%;">
-    <h1 style="font-size: 42px; text-align: center;">Conoce más de nosotros en nuestras páginas de facebook:</h1>
-    <p style="font-size: 38px; text-align: center;">Yolher 1 Salamá: <a href="https://www.facebook.com/share/1CL5Hii69M/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/dA3gYUntJj44v4uj8" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <p style="font-size: 38px; text-align: center;">Yolher 3 Salamá: <a href="https://www.facebook.com/share/1DDLPTjtHc/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/o3m2FJx6HcDhyFBNA" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <p style="font-size: 38px; text-align: center;">Yolher Federal Salamá: <a href="https://www.facebook.com/share/1U9oXryGPL/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/pvrvAr21ZMApCL397" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <p style="font-size: 38px; text-align: center;">Yolher 1 San Miguel: <a href="https://www.facebook.com/share/1Lf6nmKQwF/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/1xkipkRMzftH5iKTA" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <p style="font-size: 38px; text-align: center;">Yolher 2 San Miguel: <a href="https://www.facebook.com/share/1GSMApd3Yi/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/b1wfrpL9CqnmT9bx7" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <p style="font-size: 38px; text-align: center;">Yolher Santa Barbara: <a href="https://www.facebook.com/share/1DgPz8YbmY/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/FMHRy2ysR5JMjMZe8" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <p style="font-size: 38px; text-align: center;">Yolher Purulha: <a href="https://www.facebook.com/share/1ATTpGptsj/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/share/1CL5Hii69M/</a></p>
-    <p style="font-size: 35px; text-align: center;">Nuestra ubicación: <a href="https://maps.app.goo.gl/4Vk4a17yh6RzHGs48" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/dA3gYUntJj44v4uj8</a></p>
-    <button onclick="saludar()">Haz clic</button>
-</div>
+<main>
+    <div class="card">
+        <img src="LOGO_YOLHER-new1.png" alt="Logo de Despensa Yolher">
+        <h1>Despensa Yolher</h1>
+        <p>Somos una tienda enfocada en la venta de productos de primera necesidad, limpieza y artículos para el hogar; con sucursales en Salamá, San Miguel y más. Encuentra aquí nuestras ubicaciones y páginas de Facebook.</p>
+        <p>¡Somos Despensa Yolher!</p>
+
+        <div class="buttons">
+            <a class="btn" href="tel:+50279400919" aria-label="Llamar a Yolher">📞 Llamar</a>
+            <a class="btn" href="https://wa.me/+50232886514" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">💬 WhatsApp</a>
+            <a class="btn light" href="#ubicaciones" aria-label="Ver ubicaciones">📍 Ver ubicaciones</a>
+            <button id="toggleTheme" class="btn light" type="button" aria-label="Cambiar tema">🌙 Dark Mode</button>
+        </div>
+
+        <div class="section-title">Nuestras páginas de Facebook</div>
+        <div class="links">
+            <p><strong>Yolher 1 Salamá</strong> – <a href="https://www.facebook.com/share/1CL5Hii69M/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+            <p><strong>Yolher 3 Salamá</strong> – <a href="https://www.facebook.com/share/1DDLPTjtHc/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+            <p><strong>Yolher Federal Salamá</strong> – <a href="https://www.facebook.com/share/1U9oXryGPL/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+            <p><strong>Yolher 1 San Miguel</strong> – <a href="https://www.facebook.com/share/1Lf6nmKQwF/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+            <p><strong>Yolher 2 San Miguel</strong> – <a href="https://www.facebook.com/share/1GSMApd3Yi/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+            <p><strong>Yolher Santa Bárbara</strong> – <a href="https://www.facebook.com/share/1DgPz8YbmY/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+            <p><strong>Yolher Purulhá</strong> – <a href="https://www.facebook.com/share/1ATTpGptsj/" target="_blank" rel="noopener noreferrer">Ver página</a></p>
+        </div>
+
+        <div id="ubicaciones" class="section-title">Ubicaciones</div>
+        <div class="links">
+            <p><strong>Yolher 1 Salamá</strong> – <a href="https://maps.app.goo.gl/dA3gYUntJj44v4uj8" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            <p><strong>Yolher 3 Salamá</strong> – <a href="https://maps.app.goo.gl/o3m2FJx6HcDhyFBNA" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            <p><strong>Yolher Federal Salamá</strong> – <a href="https://maps.app.goo.gl/pvrvAr21ZMApCL397" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            <p><strong>Yolher 1 San Miguel</strong> – <a href="https://maps.app.goo.gl/1xkipkRMzftH5iKTA" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            <p><strong>Yolher 2 San Miguel</strong> – <a href="https://maps.app.goo.gl/b1wfrpL9CqnmT9bx7" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            <p><strong>Yolher Santa Bárbara</strong> – <a href="https://maps.app.goo.gl/FMHRy2ysR5JMjMZe8" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            <p><strong>Yolher Purulhá</strong> – <a href="https://maps.app.goo.gl/4Vk4a17yh6RzHGs48" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+        </div>
+
+        <div class="section-title">Mapa (Yolher 1 Salamá)</div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps?q=15.117680992698954,-90.25481452930425&hl=es&z=16&output=embed"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="section-title">Contáctanos</div>
+        <form class="form" autocomplete="off" onsubmit="return false;">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" type="text" placeholder="Tu nombre" required>
+
+            <label for="email">Correo</label>
+            <input id="email" name="email" type="email" placeholder="tu@correo.com" required>
+
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje..." required></textarea>
+
+            <button class="btn" type="submit">Enviar mensaje</button>
+        </form>
+    </div>
+</main>
 
 <script>
-function saludar() {
-    alert("¡Somos Despensa Yolher!");
-}
+(function () {
+    const toggle = document.getElementById('toggleTheme');
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggle.textContent = '☀️ Claro';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            toggle.textContent = '🌙 Dark Mode';
+        }
+    }
+
+    toggle.addEventListener('click', function () {
+        const current = document.documentElement.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+        localStorage.setItem('yolher-theme', document.documentElement.getAttribute('data-theme') || 'light');
+    });
+
+    const storedTheme = localStorage.getItem('yolher-theme');
+    if (storedTheme) {
+        setTheme(storedTheme);
+    }
+}());
 </script>
 
 </body>
-
 </html>
 
