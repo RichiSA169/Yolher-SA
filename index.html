@@ -53,7 +53,7 @@
         }
 
         .card img {
-            max-width: 220px;
+            max-width: 280px;
             width: 60%;
             height: auto;
             border-radius: 14px;
@@ -167,9 +167,18 @@
 <main>
     <div class="card">
         <img src="LOGO_YOLHER-new1.png" alt="Logo de Despensa Yolher">
-        <h1>Despensa Yolher</h1>
-        <p>Somos una tienda enfocada en la venta de productos de primera necesidad, limpieza y artículos para el hogar; con sucursales en Salamá, San Miguel y más. Encuentra aquí nuestras ubicaciones y páginas de Facebook.</p>
-        <p>¡Somos Despensa Yolher!</p>
+
+        <h2>Nuestra Misión:</h2>
+        <p>Somos una empresa que facilita la obtención de productos de primera necesidad, con una diversidad 
+            de precios, con amplia gama de marcas reconocidas opcionales de acuerdo al gusto y preferencias 
+            del cliente, brindando un servicio acompañado de asesoría y rapidez.</p>
+
+        <h2>Nuestra Visión:</h2>
+        <p>Ser una líder comercializadora de productos de primera necesidad en Baja Verapaz, creando valor de 
+            servicio en nuestros colaboradores, mediante estrategias con la prioridad de proveer productos de
+            calidad a los más bajos precios para satisfacer las necesidades de los clientes.</p>
+
+        <h2>¡Somos Despensa Yolher!</h2>
 
         <div class="buttons">
             <a class="btn" href="tel:+50279400919" aria-label="Llamar a Yolher">📞 Llamar</a>
@@ -218,10 +227,10 @@
     function setTheme(theme) {
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            toggle.textContent = '☀️ Claro';
+            toggle.textContent = '☀️ Modo Claro';
         } else {
             document.documentElement.removeAttribute('data-theme');
-            toggle.textContent = '🌙 Dark Mode';
+            toggle.textContent = '🌙 Modo Oscuro';
         }
     }
 
