@@ -53,8 +53,8 @@
         }
 
         .card img {
-            max-width: 280px;
-            width: 60%;
+            max-width: 340px;
+            width: 80%;
             height: auto;
             border-radius: 14px;
             margin: 0 auto 18px;
@@ -139,6 +139,22 @@
             margin-top: 14px;
         }
 
+        .mission-vision-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .mission-card,
+        .vision-card {
+            flex: 1;
+            padding: 26px 28px 30px;
+            background: var(--card);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+            text-align: center;
+        }
+
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.8rem;
@@ -146,6 +162,10 @@
 
             .card {
                 padding: 18px;
+            }
+
+            .mission-vision-container {
+                flex-direction: column;
             }
 
             .btn {
@@ -167,17 +187,27 @@
 <main>
     <div class="card">
         <img src="LOGO_YOLHER-new1.png" alt="Logo de Despensa Yolher">
+        
+        <h3>Su destino confiable para productos de primera necesidad en Baja Verapaz. 
+            Con una amplia variedad de marcas reconocidas y precios competitivos, 
+            nos dedicamos a brindar un servicio excepcional acompañado de asesoría 
+            personalizada y rapidez en cada compra.</h3>
 
-        <h2>Nuestra Misión:</h2>
-        <p>Somos una empresa que facilita la obtención de productos de primera necesidad, con una diversidad 
-            de precios, con amplia gama de marcas reconocidas opcionales de acuerdo al gusto y preferencias 
-            del cliente, brindando un servicio acompañado de asesoría y rapidez.</p>
-
-        <h2>Nuestra Visión:</h2>
-        <p>Ser una líder comercializadora de productos de primera necesidad en Baja Verapaz, creando valor de 
-            servicio en nuestros colaboradores, mediante estrategias con la prioridad de proveer productos de
-            calidad a los más bajos precios para satisfacer las necesidades de los clientes.</p>
-
+        <div class="mission-vision-container">
+            <div class="mission-card">
+                <h2>Nuestra Misión:</h2>
+                <p>Somos una empresa que facilita la obtención de productos de primera necesidad, con una diversidad 
+                    de precios, con amplia gama de marcas reconocidas opcionales de acuerdo al gusto y preferencias 
+                    del cliente, brindando un servicio acompañado de asesoría y rapidez.</p>
+            </div>
+            <div class="vision-card">
+                <h2>Nuestra Visión:</h2>
+                <p>Ser una líder comercializadora de productos de primera necesidad en Baja Verapaz, creando valor de 
+                    servicio en nuestros colaboradores, mediante estrategias con la prioridad de proveer productos de
+                    calidad a los más bajos precios para satisfacer las necesidades de los clientes.</p>
+            </div>
+        </div>
+        <img src="YOLHER 1.jpg" alt="Fachada de Despensa Yolher 1 Salamá">
         <h2>¡Somos Despensa Yolher!</h2>
 
         <div class="buttons">
@@ -212,7 +242,7 @@
         <div class="section-title">Mapa (Yolher 1 Salamá)</div>
         <div class="map">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.005346608922!2d-90.3227445238759!3d15.10303403480467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3ce8a91287b%3A0xf528564201918ff3!2sDespensa%20Yolher%201!5e0!3m2!1ses-419!2sgt!4v1773336513096!5m2!1ses-419!2sgt"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.9592589798135!2d-90.32215802665446!3d15.105573941393478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3ce8a91287b%3A0xf528564201918ff3!2sDespensa%20Yolher%201!5e0!3m2!1ses-419!2sgt!4v1774361275187!5m2!1ses-419!2sgt"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
