@@ -13,10 +13,11 @@
     --rojo:#d40000;
     --amarillo:#ffd000;
     --azul:#0033a0;
-    --blanco:#ffffff;
-    --gris:#f5f5f5;
+    --oscuro:#0f172a;
+    --gris:#f1f5f9;
 }
 
+/* RESET */
 *{
     margin:0;
     padding:0;
@@ -26,60 +27,63 @@
 body{
     font-family:'Poppins',sans-serif;
     background:var(--gris);
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 25px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+
+.navbar img{
+    width:90px;
+}
+
+.navbar a{
+    text-decoration:none;
+    margin-left:15px;
+    font-weight:500;
+    color:black;
 }
 
 /* HERO */
 .hero{
-    background:url("YOLHER 1.jpg") center/cover no-repeat;
-    height:70vh;
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+               url("YOLHER 1.jpg") center/cover no-repeat;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     color:white;
-    position:relative;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-}
-
-.hero img{
-    width:180px;
-    margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:2.5rem;
+    font-size:3rem;
 }
 
 .hero p{
     margin-top:10px;
-    font-size:1.1rem;
 }
 
 /* BOTONES */
-.buttons{
-    margin-top:20px;
-}
-
 .btn{
-    background:var(--amarillo);
-    color:black;
-    padding:12px 18px;
+    margin-top:20px;
+    display:inline-block;
+    padding:12px 20px;
     border-radius:30px;
     text-decoration:none;
-    margin:5px;
-    display:inline-block;
+    background:var(--amarillo);
+    color:black;
     font-weight:600;
     transition:0.3s;
 }
@@ -89,57 +93,63 @@ body{
     color:white;
 }
 
-/* CONTENIDO */
-.container{
+/* SECCIONES */
+.section{
+    padding:80px 20px;
     max-width:1100px;
     margin:auto;
-    padding:40px 20px;
 }
 
 .card{
     background:white;
     padding:25px;
     border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-/* MISION VISION */
-.flex{
-    display:flex;
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
-.flex .card{
-    flex:1;
-}
-
+/* TITULOS */
 h2{
-    margin-bottom:10px;
+    text-align:center;
+    margin-bottom:30px;
     color:var(--azul);
 }
 
-/* LINKS */
-.links p{
-    margin:8px 0;
+/* FOOTER */
+.footer{
+    background:var(--oscuro);
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
-/* MAPA */
-.map iframe{
-    width:100%;
-    height:300px;
-    border-radius:10px;
-    border:none;
+/* ANIMACIONES */
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+
+.fade.active{
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-    .flex{
-        flex-direction:column;
-    }
-
     .hero h1{
-        font-size:1.8rem;
+        font-size:2rem;
     }
 }
 </style>
@@ -147,50 +157,66 @@ h2{
 
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+    <img src="LOGO_YOLHER-new1.png">
+    <div>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#mision">Misión</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</div>
+
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <img src="LOGO_YOLHER-new1.png">
+    <div>
         <h1>Despensa Yolher</h1>
-        <p>Tu mejor opción en productos de primera necesidad</p>
+        <p>Calidad, precio y confianza en un solo lugar</p>
 
-        <div class="buttons">
-            <a class="btn" href="tel:+50279400919">📞 Llamar</a>
-            <a class="btn" href="https://wa.me/+50232886514">💬 WhatsApp</a>
+        <a class="btn" href=" ">💬 Pedir por WhatsApp</a>
+    </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="section fade">
+    <h2>Sobre Nosotros</h2>
+    <div class="card">
+        <p>Somos una empresa que facilita la obtención de productos de primera necesidad, para mejorar la
+             calidad de vida de nuestros clientes, facilitando el acceso a productos esenciales a precios
+              accesibles, con un servicio confiable, cercano y eficiente que apoye la economía de las familias
+               de Baja Verapaz.</p>
+    </div>
+</section>
+
+<!-- MISION VISION -->
+<section id="mision" class="section fade">
+    <h2>Misión y Visión</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Misión</h3>
+            <p>Brindar a nuestros clientes un acceso fácil, rápido y confiable a productos de primera necesidad,
+                 artículos de uso diario y de limpieza, ofreciendo una amplia variedad de marcas reconocidas y opciones
+                  accesibles que se adapten a sus gustos y presupuesto.</p>
+        </div>
+
+        <div class="card">
+            <h3>Visión</h3>
+            <p>Ser la empresa líder en la comercialización de productos de primera necesidad en Baja Verapaz,
+                 destacándonos por la calidad de nuestros productos, precios competitivos y excelencia en el servicio.
+                  Buscamos generar valor, mediante estrategias innovadoras que nos permitan satisfacer de manera constante
+                   las necesidades de nuestros clientes.</p>
         </div>
     </div>
 </section>
 
-<!-- CONTENIDO -->
-<div class="container">
+<!-- CONTACTO -->
+<section id="contacto" class="section fade">
+    <h2>Contáctanos</h2>
 
-    <div class="card">
-        <h2>Sobre Nosotros</h2>
-        <p>
-        Somos una empresa que facilita la obtención de productos de primera necesidad, 
-        con una amplia variedad de marcas y precios accesibles, brindando un servicio rápido y confiable.
-        </p>
-    </div>
-
-    <div class="flex">
+    <div class="grid">
         <div class="card">
-            <h2>Misión</h2>
-            <p>
-            Brindar productos de calidad con precios accesibles, ofreciendo atención rápida y personalizada.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Visión</h2>
-            <p>
-            Ser líderes en la comercialización de productos de consumo en Baja Verapaz.
-            </p>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>Redes Sociales</h2>
-        <div class="links">
+            <h3>✉ Redes Sociales</h3>
             <p>Yolher 1 Salamá – <a href="https://www.facebook.com/share/1CL5Hii69M/">Ver página</a></p>
             <p>Yolher 3 Salamá – <a href="https://www.facebook.com/share/1DDLPTjtHc/">Ver página</a></p>
             <p>Yolher Federal – <a href="https://www.facebook.com/share/1U9oXryGPL/">Ver página</a></p>
@@ -199,29 +225,49 @@ h2{
             <p>Yolher 1 San Miguel – <a href="https://www.facebook.com/share/1Lf6nmKQwF/">Ver página</a></p>
             <p>Yolher 2 San Miguel – <a href="https://www.facebook.com/share/1GSMApd3Yi/">Ver página</a></p>
         </div>
-    </div>
 
-    <div class="card">
-        <h2>Ubicaciones</h2>
-        <div class="links">
-            <p>Yolher 1 Salamá – <a href="https://maps.app.goo.gl/dA3gYUntJj44v4uj8">Ver en Google Maps</a></p>
-            <p>Yolher 3 Salamá – <a href="https://maps.app.goo.gl/o3m2FJx6HcDhyFBNA">Ver en Google Maps</a></p>
-            <p>Yolher Federal – <a href="https://maps.app.goo.gl/pvrvAr21ZMApCL397">Ver en Google Maps</a></p>
-            <p>Yolher Purulhá – <a href="https://maps.app.goo.gl/4Vk4a17yh6RzHGs48">Ver en Google Maps</a></p>
-            <p>Yolher Santa Bárbara – <a href="https://maps.app.goo.gl/FMHRy2ysR5JMjMZe8">Ver en Google Maps</a></p>
-            <p>Yolher 1 San Miguel – <a href="https://maps.app.goo.gl/1xkipkRMzftH5iKTA">Ver en Google Maps</a></p>
-            <p>Yolher 2 San Miguel – <a href="https://maps.app.goo.gl/b1wfrpL9CqnmT9bx7">Ver en Google Maps</a></p>
+        <div class="card">
+            <h3>💬 WhatsApp</h3>
+            <p>Yolher 1 Salamá – <a href="https://wa.me/+50232886514">3288-6514</a></p>
+            <p>Yolher 3 Salamá – <a href="https://wa.me/+50237577057">3757-7057</a></p>
+            <p>Yolher Federal – <a href="https://wa.me/+50259425412">5942-5412</a></p>
+            <p>Yolher Purulhá – <a href="https://wa.me/+50259319843">5931-9843</a></p>
+            <p>Yolher Santa Bárbara – <a href="https://wa.me/+50259648093">5964-8093</a></p>
+            <p>Yolher 1 San Miguel – <a href="https://wa.me/+50256903691">5690-3691</a></p>
+            <p>Yolher 2 San Miguel – <a href="https://wa.me/+50239851302">3985-1302</a></p>
+        </div>
+
+        <div class="card">
+            <h3>📍 Ubicaciones</h3>
+            <p>Yolher 1 Salamá – <a href="https://maps.app.goo.gl/dA3gYUntJj44v4uj8">Ver en Maps</a></p>
+            <p>Yolher 3 Salamá – <a href="https://maps.app.goo.gl/o3m2FJx6HcDhyFBNA">Ver en Maps</a></p>
+            <p>Yolher Federal – <a href="https://maps.app.goo.gl/pvrvAr21ZMApCL397">Ver en Maps</a></p>
+            <p>Yolher Purulhá – <a href="https://maps.app.goo.gl/4Vk4a17yh6RzHGs48">Ver en Maps</a></p>
+            <p>Yolher Santa Bárbara – <a href="https://maps.app.goo.gl/FMHRy2ysR5JMjMZe8">Ver en Maps</a></p>
+            <p>Yolher 1 San Miguel – <a href="https://maps.app.goo.gl/1xkipkRMzftH5iKTA">Ver en Maps</a></p>
+            <p>Yolher 2 San Miguel – <a href="https://maps.app.goo.gl/b1wfrpL9CqnmT9bx7">Ver en Maps</a></p>
         </div>
     </div>
+</section>
 
-    <div class="card">
-        <h2>Ubicación</h2>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.9592589798135!2d-90.32215802665446!3d15.105573941393478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3ce8a91287b%3A0xf528564201918ff3!2sDespensa%20Yolher%201!5e0!3m2!1ses-419!2sgt!4v1774361275187!5m2!1ses-419!2sgt"></iframe>
-        </div>
-    </div>
-
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Despensa Yolher - Todos los derechos reservados
 </div>
+
+<!-- SCRIPT ANIMACIONES -->
+<script>
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll',()=>{
+    fades.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
